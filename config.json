@@ -18,5 +18,10 @@
         "Adress":"SVIMBETIBAOCN:8509",
         "Type":"EPTA",
         "Software":"PyHMS"
+    },
+    "P-40" :{
+        "Adress":"SMP40OCN01:8509",
+        "Type":"DADAS",
+        "Software":"PyHMS"
     }
 }
