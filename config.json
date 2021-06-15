@@ -1,0 +1,22 @@
+{
+    "P-26":{
+        "Adress":"smp26ocn02:8509",
+        "Type":"HMS",
+        "Software":"PyHMS"
+        },
+    "P-37" :{
+        "Adress":"MI00338947:8509",
+        "Type":"HMS",
+        "Software":"PyHMS"
+    },
+    "P-18" :{
+        "Adress":"SMP18OCN01:8509",
+        "Type":"HMS",
+        "Software":"PyHMS"
+    },
+    "Imbetiba" :{
+        "Adress":"SVIMBETIBAOCN:8509",
+        "Type":"EPTA",
+        "Software":"PyHMS"
+    }
+}
