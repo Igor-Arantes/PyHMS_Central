@@ -27,12 +27,18 @@ def UpdateTargets():
 
 df_unidades = UpdateTargets()
 
-for unidade in df_unidades.index:
-    if df_unidades.loc[unidade]['Type'] == 'HMS':
-        print('\n'+unidade+'HMS:')
-        print(DataAquisition.get_status_hms(df_unidades.loc[unidade]['Adress'],DataAquisition.pre_get,DataAquisition.get_hms))
-    elif df_unidades.loc[unidade]['Type'] == 'EPTA':
-        print('\n'+unidade+'EPTA:')
-        print(DataAquisition.get_status_hms(df_unidades.loc[unidade]['Adress'],DataAquisition.pre_get,DataAquisition.get_epta))
+lista_df_unidade =[]
+for i in range(len(df_unidades)):
+    if df_unidades.iloc[i]['Type'] == 'HMS':
+        df = DataAquisition.get_status_hms(df_unidades.iloc[i].name,df_unidades.iloc[i]['Adress'],DataAquisition.pre_get,DataAquisition.get_hms)
+        lista_df_unidade.append(df.T)
+    elif df_unidades.iloc[i]['Type'] == 'EPTA':
+        #print('\n'+unidade+'EPTA:')
+        df = (DataAquisition.get_status_hms(df_unidades.iloc[i].name,df_unidades.iloc[i]['Adress'],DataAquisition.pre_get,DataAquisition.get_hms))
+        df.loc[['ptchupvok','heavprok','heavvlok','rollptvok']] = '--'
+        lista_df_unidade.append(df.T)
     else:
-        print(f"\n Error: Type {df_unidades.loc[unidade]['Type']} not found")
+        print(f"\n Error: Type {df_unidades.iloc[i]['Type']} not found")
+
+Status_UCDS = pd.concat(lista_df_unidade)
+print(Status_UCDS)
