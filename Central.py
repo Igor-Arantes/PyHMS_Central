@@ -4,6 +4,7 @@ import pandas as pd
 
 #Modulos
 import DataAquisition
+import DfManipulation
 
 
 #Function to read and organize the targets
@@ -40,5 +41,11 @@ for i in range(len(df_unidades)):
     else:
         print(f"\n Error: Type {df_unidades.iloc[i]['Type']} not found")
 
+
 Status_UCDS = pd.concat(lista_df_unidade)
+Status_UCDS = DfManipulation.rename_columns(Status_UCDS,DfManipulation.dict_columns)
+Status_UCDS = DfManipulation.reorder_columns(Status_UCDS,DfManipulation.columns_order)
+Status_UCDS = DfManipulation.status_rename(Status_UCDS,DfManipulation.dict_status)
+Status_UCDS = DfManipulation.coloring(Status_UCDS)
+
 print(Status_UCDS)

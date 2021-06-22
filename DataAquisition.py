@@ -18,6 +18,5 @@ def get_status_hms(name,target, pre_get ='http://', get_hms ='/get/data?localtim
         return status
     except:
         return print(f"Error: Type {target} not conected")
-    
-    
-    
+
+
