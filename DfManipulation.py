@@ -36,12 +36,15 @@ def reorder_columns(df,order):
 #Styliyng
 
 def background_color(val):
+    color = str
     if val == 'Nok':
         color = 'red'
     elif val == 'Ok':
         color = 'Green'
     elif val == '--':
-        color = 'Black'    
+        color = 'Black'
+    elif val == 'xxx':
+        color = 'Yellow'      
     return 'background-color: %s' % color
 
 def coloring(df):

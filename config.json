@@ -14,6 +14,11 @@
         "Type":"HMS",
         "Software":"PyHMS"
     },
+    "P-47" :{
+        "Adress":"SMP47OCN01:8509",
+        "Type":"HMS",
+        "Software":"PyHMS"
+    },
     "Imbetiba" :{
         "Adress":"SVIMBETIBAOCN:8509",
         "Type":"EPTA",

@@ -17,6 +17,10 @@ def get_status_hms(name,target, pre_get ='http://', get_hms ='/get/data?localtim
         status.columns = [name]
         return status
     except:
-        return print(f"Error: Type {target} not conected")
+        sem_conexão = {'':['ptchupvok','heavprok','heavvlok','rollptvok','relhumiok',
+        'headvsok','windspdok','localtime','winddirok','airpresok','airtempok'],
+        name:['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx']}
+        status = pd.DataFrame(sem_conexão).set_index('')
+        return status
 
 
