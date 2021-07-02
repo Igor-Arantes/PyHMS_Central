@@ -1,15 +1,17 @@
-#Bibliotecas
+#Libraries
 import pandas as pd
 import streamlit as st
 
 
-#Modulos
+#Modules
 import DataAquisition
 import DfManipulation
 
 
+#Features
 
-#
+
+#Main loop
 def main():
     st.set_page_config(
         page_title="PyHMS Central",
@@ -71,6 +73,9 @@ def Get_table_UCDS():
 
     return(Status_UCDS)
 
+
+
+        
 
 
 if __name__ == "__main__":
