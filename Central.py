@@ -6,25 +6,25 @@ import streamlit as st
 #Modules
 import DataAquisition
 import DfManipulation
+import Central
+import Config
 
 
-#Features
+st.set_page_config(
+page_title="PyHMS Central",
+page_icon="🧊",
+layout="wide",
+initial_sidebar_state="collapsed"
 
-
-#Main loop
-def main():
-    st.set_page_config(
-        page_title="PyHMS Central",
-        page_icon="🧊",
-        layout="wide",
-        initial_sidebar_state="expanded",
-    )
-    st.title("Status UCDs PYHMS")
-
-    st.table(data=Get_table_UCDS())
-
-
-
+)
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+            
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 
 
@@ -75,8 +75,26 @@ def Get_table_UCDS():
 
 
 
-        
+#Main loop
+def main():
+
+
+    st.title("Status UCDs PYHMS")
+    
+    st.table(data=Get_table_UCDS())
+    st.button('Atualizar status')
+    
+
+
+
 
 
 if __name__ == "__main__":
-    main() 
+    PAGES = {
+    "Central": Central,
+    "Config": Config
+    }
+    st.sidebar.title('Navegação')
+    selection = st.sidebar.radio("Ir para:", list(PAGES.keys()))
+    page = PAGES[selection]
+    page.main()
