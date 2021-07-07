@@ -23,9 +23,11 @@ quando há uma medição correta e  Amarelo quando não foi possível se conecta
 ## Imagens
 
 ### Painel Principal
-![Painel Principal](https://github.com/Igor-Arantes/PyHMS_Central/blob/main/Pagina_Principal.JPG)
+![Painel Principal](https://github.com/Igor-Arantes/PyHMS_Central/blob/main/Pagina_Principal.JPG)  
+
 ### Painel de configuração
-![Painel de Configuração](https://github.com/Igor-Arantes/PyHMS_Central/blob/main/Pagina%20de%20Configura%C3%A7%C3%A3o.JPG)
+![Painel de Configuração](https://github.com/Igor-Arantes/PyHMS_Central/blob/main/Pagina%20de%20Configura%C3%A7%C3%A3o.JPG)  
+
 ## Bibliotecas Utilizadas
 
 [Pandas 1.1.5](https://pandas.pydata.org/docs/reference/index.html)  
