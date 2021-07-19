@@ -2,7 +2,7 @@
 import streamlit as st
 import os
 import base64
-
+import ftplib
 
 
 #Download Function
@@ -18,9 +18,34 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
 
 
 
-
 def main():
 
+
+    st.title("Softwares OCN")
+
+    c1 , c2 = st.beta_columns(2)
+
+    with c1:
+        #PyHMS
+        
+        with st.beta_expander(label='PyHMS'):
+            st.text('Padrão PyHMS')
+            st.markdown('<a href="ftp://npaa3735/Softwares/PyHMSstablefull_v131.zip">HomeHost</a></p>', unsafe_allow_html=True)
+            #st.markdown(get_binary_file_downloader_html('Softwares\PyHMSstablefull_v131 - EPTA Only.zip', 'PyHMS'), unsafe_allow_html=True)
+        #Dadas
+        with st.beta_expander(label='Dadas'):
+            st.text('Instalação padrão do Dadas')
+            st.markdown(get_binary_file_downloader_html('Softwares\DADAS32.zip', 'Dadas'), unsafe_allow_html=True)
+    with c2:
+        #PyHMS sem HMS
+        with st.beta_expander(label='PyHMS - Somente com EPTA'):
+            st.text('PyHMS sem a vizualização do HMS, somente EPTA')
+            #st.markdown(get_binary_file_downloader_html('Softwares\PyHMSstablefull_v131 - EPTA Only.zip', 'PyHMS-EPTA'), unsafe_allow_html=True)
+
+        #Dadas Client
+        with st.beta_expander(label='Dadas Client'):
+            st.text('Dadas Client Padrão')
+            st.markdown(get_binary_file_downloader_html('Softwares\Client.zip', 'Dadas'), unsafe_allow_html=True)
 
     st.title("Download de Ferramentas")
 
@@ -47,5 +72,6 @@ def main():
             st.markdown(get_binary_file_downloader_html('Tools\Gemeos\Sistema Gêmeos v.2.0.zip', 'Gemeos'), unsafe_allow_html=True)
 
 
+    
 if __name__ == "__main__":
     main() 
