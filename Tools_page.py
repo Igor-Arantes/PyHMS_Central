@@ -2,19 +2,17 @@
 import streamlit as st
 import os
 import base64
-import ftplib
+import ftpref
 
 
 #Download Function
+
 def get_binary_file_downloader_html(bin_file, file_label='File'):
     with open(bin_file, 'rb') as f:
         data = f.read()
     bin_str = base64.b64encode(data).decode()
     href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
     return href
-
-
-
 
 
 
@@ -30,22 +28,21 @@ def main():
         
         with st.beta_expander(label='PyHMS'):
             st.text('Padrão PyHMS')
-            st.markdown('<a href="ftp://npaa3735/Softwares/PyHMSstablefull_v131.zip">HomeHost</a></p>', unsafe_allow_html=True)
-            #st.markdown(get_binary_file_downloader_html('Softwares\PyHMSstablefull_v131 - EPTA Only.zip', 'PyHMS'), unsafe_allow_html=True)
+            st.markdown(ftpref.pyhms, unsafe_allow_html=True)
         #Dadas
         with st.beta_expander(label='Dadas'):
             st.text('Instalação padrão do Dadas')
-            st.markdown(get_binary_file_downloader_html('Softwares\DADAS32.zip', 'Dadas'), unsafe_allow_html=True)
+            st.markdown(ftpref.dadas, unsafe_allow_html=True)
     with c2:
         #PyHMS sem HMS
         with st.beta_expander(label='PyHMS - Somente com EPTA'):
             st.text('PyHMS sem a vizualização do HMS, somente EPTA')
-            #st.markdown(get_binary_file_downloader_html('Softwares\PyHMSstablefull_v131 - EPTA Only.zip', 'PyHMS-EPTA'), unsafe_allow_html=True)
+            st.markdown(ftpref.pyhsm_epta, unsafe_allow_html=True)
 
         #Dadas Client
         with st.beta_expander(label='Dadas Client'):
             st.text('Dadas Client Padrão')
-            st.markdown(get_binary_file_downloader_html('Softwares\Client.zip', 'Dadas'), unsafe_allow_html=True)
+            st.markdown(ftpref.dadas_client, unsafe_allow_html=True)
 
     st.title("Download de Ferramentas")
 
@@ -65,11 +62,11 @@ def main():
         #Sublime portable
         with st.beta_expander(label='Sublime'):
             st.text('Editor de textos')
-            st.markdown(get_binary_file_downloader_html('Tools\Sublime\sublime_portable.zip', 'Sublime'), unsafe_allow_html=True)
+            st.markdown(ftpref.sublime, unsafe_allow_html=True)
        #Gemeos
         with st.beta_expander(label='Gemeos'):
             st.text('Move arquivos')
-            st.markdown(get_binary_file_downloader_html('Tools\Gemeos\Sistema Gêmeos v.2.0.zip', 'Gemeos'), unsafe_allow_html=True)
+            st.markdown(ftpref.gemeos, unsafe_allow_html=True)
 
 
     
